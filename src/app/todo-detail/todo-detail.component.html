@@ -1,0 +1,14 @@
+<div><span>Name: </span>{{todo?.task}}</div>
+<div><span>Completed: </span><span class="padding-css" [style.background-color]="todo?.isCompleted ? 'green' : 'red'"> {{todo?.isCompleted}} </span></div>
+<!-- <button (click)="onIdentityCheck()"> Who I am </button> -->
+<br><br>
+
+<form (ngSubmit)="changeTodo(todoForm)" #todoForm="ngForm">
+  
+  Name: <input name="task" [(ngModel)]="todo.task">
+  <br><br>
+  Completed: <input type="checkbox" [checked]="todo.isCompleted" (change)="todo.isCompleted = !todo.isCompleted" />
+  <br><br>
+  <button type="submit" [disabled]="!todoForm.form.valid">Update</button>
+
+</form>

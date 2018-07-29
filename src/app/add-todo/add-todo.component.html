@@ -1,0 +1,9 @@
+<form (ngSubmit)="saveTodo(todoForm)" #todoForm="ngForm">
+  
+  Name: <input name="task" [(ngModel)]="todo.task">
+  <br><br>
+  
+  <button type="submit" [disabled]="!todoForm.form.valid">Submit</button>
+
+</form>
+

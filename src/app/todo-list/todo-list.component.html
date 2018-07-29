@@ -1,0 +1,19 @@
+<nav>
+<h2>My Todos</h2>
+<a routerLink="/add-todo">Add New Todo</a>
+</nav>
+<router-outlet></router-outlet>
+
+<ul class="todos">
+    <li *ngFor="let todo of todos"
+      [class.selected]="todo === selectedTodo"
+      (click)="goToEditPage(todo)"> 
+      <span class="badge">{{todo.id}}</span> {{todo.task}}  <i (click)="deleteTodo(todo.id)" class="fa fa-trash" aria-hidden="true"></i>
+    </li>
+    <li style="background-color: #DDD; font-family: Arial, Helvetica, sans-serif; color:#444; font-weight: bold;" *ngIf="todos?.length == 0">No Todos Found. </li>
+</ul>
+<!-- <div *ngIf="todos?.length > 0"> 
+    <li  *ngFor="let todo of todos"> {{todo.task}}> </li>
+</div> -->
+<!-- <div *ngIf="todos?.length == 0" style="background-color: dimgray;"> No Todos Found.</div> -->
+
