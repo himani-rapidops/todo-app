@@ -8,12 +8,10 @@
     <li *ngFor="let todo of todos"
       [class.selected]="todo === selectedTodo"
       (click)="goToEditPage(todo)"> 
-      <span class="badge">{{todo.id}}</span> {{todo.task}}  <i (click)="deleteTodo(todo.id)" class="fa fa-trash" aria-hidden="true"></i>
+      <span class="badge">{{todo.id}}</span> {{todo.task}} 
+      <span (click)="deleteTodo(todo.id)">
+          <i  class="fa fa-trash-o" style="margin-left:600px; padding-left:500px; !important" aria-hidden="true"></i>
+      </span>
     </li>
     <li style="background-color: #DDD; font-family: Arial, Helvetica, sans-serif; color:#444; font-weight: bold;" *ngIf="todos?.length == 0">No Todos Found. </li>
 </ul>
-<!-- <div *ngIf="todos?.length > 0"> 
-    <li  *ngFor="let todo of todos"> {{todo.task}}> </li>
-</div> -->
-<!-- <div *ngIf="todos?.length == 0" style="background-color: dimgray;"> No Todos Found.</div> -->
-
